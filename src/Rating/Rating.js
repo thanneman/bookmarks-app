@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Rating.css';
 
 export default function Rating(props) {
@@ -7,9 +8,14 @@ export default function Rating(props) {
       ? <span key={i}>&#9733; </span>
       : <span key={i}>&#9734; </span>
   );
+
   return (
     <div className="rating">
       {stars}
     </div>
   );
 }
+
+Rating.propTypes = {
+  value: PropTypes.number
+};
