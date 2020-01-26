@@ -31,7 +31,7 @@ class EditBookmark extends Component {
 
   componentDidMount() {
     const { bookmarkId } = this.props.match.params
-    fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
+    fetch(`${config.API_ENDPOINT}/api/bookmarks` + `/${bookmarkId}`, {
       method: 'GET',
       headers: {
         'authorization': `Bearer ${config.API_KEY}`
