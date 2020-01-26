@@ -53,7 +53,6 @@ export default function BookmarkItem(props) {
             </Link>
             {' '}
             <button
-              className='BookmarkItem__description'
               onClick={() =>
                 deleteBookmarkRequest(props.id, context.deleteBookmark)
               }
@@ -70,7 +69,7 @@ export default function BookmarkItem(props) {
 BookmarkItem.defaultProps = {
   onClickDelete: () => {},
 }
-
+/*
 BookmarkItem.propTypes = {
   id: PropTypes.oneOfType([
     PropTypes.number,
@@ -81,4 +80,4 @@ BookmarkItem.propTypes = {
   desciption: PropTypes.string,
   rating: PropTypes.number.isRequired,
   onClickDelete: PropTypes.func,
-}
+}*/
