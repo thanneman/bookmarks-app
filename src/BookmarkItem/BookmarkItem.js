@@ -1,10 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Rating from '../Rating/Rating';
 import BookmarksContext from '../BookmarksContext';
 import config from '../config';
 import './BookmarkItem.css';
+
+
 
 function deleteBookmarkRequest(bookmarkId, cb) {
   fetch(`${config.API_ENDPOINT}/api/bookmarks` + `/${bookmarkId}`, {
@@ -13,22 +15,26 @@ function deleteBookmarkRequest(bookmarkId, cb) {
       'content-type': 'application/json',
       'authorization': `bearer ${config.API_KEY}`
     }
-  })/*
+  })
     .then(res => {
       if (!res.ok) {
-        return res.json().then(error => Promise.reject(error))
+        return res.json().then(error => {
+          throw error
+        })
       }
-      return res.json()
+      //return res.json()
     })
     .then(data => {
+      console.log({ data })
       cb(bookmarkId)
     })
     .catch(error => {
       console.error(error)
-    })*/
+    })
 }
 
 export default function BookmarkItem(props) {
+
   return (
     <BookmarksContext.Consumer>
       {(context) => (
@@ -65,11 +71,11 @@ export default function BookmarkItem(props) {
     </BookmarksContext.Consumer>
   )
 }
-
+/*
 BookmarkItem.defaultProps = {
   onClickDelete: () => {},
 }
-/*
+
 BookmarkItem.propTypes = {
   id: PropTypes.oneOfType([
     PropTypes.number,
